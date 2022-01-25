@@ -61,7 +61,7 @@ export default function Home() {
         {/* When the user hovers over this text, we apply the wiggle function to the image style */}
         <animated.div onMouseEnter={trigger}>
           <a className="btn--click-me" onClick={handleChangeHello}>
-            Psst, khgfhkgfhjgfhjgf me
+            plz don't poke, I'm ticklish
           </a>
         </animated.div>
       </div>

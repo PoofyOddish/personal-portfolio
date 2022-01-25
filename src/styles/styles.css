@@ -8,9 +8,9 @@ to this section's matching END comment to see page-specific styles.
 ******************************************************************************/
 /* Our default values set as CSS variables */
 :root {
-  --color-bg: #03a9f496;
+  --color-bg: #afcfd7;
   --color-text-main: #000000;
-  --color-primary: #afece0;
+  --color-primary: #e0e0e0;
   --wrapper-height: 85vh;
   --image-max-width: 320px;
   --font-family: "HK Grotesk";
@@ -48,12 +48,12 @@ to this section's matching END comment to see page-specific styles.
   height: 2.75rem;
   align-items: center;
   cursor: pointer;
-  background: #ffffff;
-  border: 1px solid #000000;
+  background: #c9d4cf;
+  border: .5px solid #000000;
   box-sizing: border-box;
   border-radius: 4px;
   text-decoration: none;
-  color: #000;
+  color: #000000;
   white-space: nowrap;
   margin-left: auto;
 }
@@ -61,10 +61,23 @@ to this section's matching END comment to see page-specific styles.
   margin-right: 0.5rem;
 }
 .btn--remix:hover {
-  background-color: #d0fff1;
+  background-color: #c3b3ab;
 }
 
 /* Navigation grid */
+.header {
+  display: flex;
+  justify-content: space-between;
+  /*margin: 1rem auto 0;*/
+  padding: .5rem 0 .5rem 0;
+  width: 100%;
+  flex-wrap: wrap;
+  background-color: #e6dcbf;
+  border-bottom: 3px solid #000000;
+  margin: 0 0 1rem 0;
+}
+
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -72,19 +85,20 @@ to this section's matching END comment to see page-specific styles.
   padding: 1rem 0 0.75rem 0;
   width: 100%;
   flex-wrap: wrap;
-  border-top: 4px solid #fff;
+  border-top: 1px solid #ffffff;
 }
 
-.footer a:not(.btn--remix):link,
+.footer a:not(.btn--remix):link, 
 a:not(.btn--remix):visited {
   font-family: HK Grotesk;
   font-style: normal;
   font-weight: normal;
   font-size: 1.1rem;
-  color: #000;
+  color: #000000;
   text-decoration: none;
   border-style: none;
 }
+
 .footer a:hover {
   background: var(--color-primary);
 }
@@ -128,6 +142,7 @@ h1 {
   font-weight: bold;
   font-size: 100px;
   line-height: 105%;
+  padding: 0.5rem 0 0 0;
 }
 .page h1 {
   font-size: 48px;
@@ -191,3 +206,16 @@ h2 {
   max-width: 100%;
 }
 */
+
+.is-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  /*box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);*/
+  /*background-color: rgba(255, 255, 255, 0.95);*/
+  animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+  
+
+
+}

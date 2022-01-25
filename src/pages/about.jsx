@@ -75,7 +75,7 @@ export default function About() {
             </li>
             <li>
               &#127973; Currently working at State of Colorado as Mental Health
-              Evalator (Data Analyst/Data Manager)
+              Evaluator (Data Analyst/Data Manager)
               <ul>
                 <li>
                   Manages data collection and quality assurance for serious
