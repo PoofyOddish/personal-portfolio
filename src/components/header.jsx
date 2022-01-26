@@ -4,6 +4,10 @@ import { Router, Link } from "wouter";
 import PageRouter from "../components/router.jsx";
 import useHashLocation from "../hooks/wouter-hash";
 
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+
 const Header = () => {
   // Sticky Menu Area
   useEffect(() => {
@@ -25,12 +29,17 @@ const Header = () => {
     <>
       {/* <header className="header-section d-none d-xl-block">  */}
       <Router hook={useHashLocation}>
+        
         <header className="header-section header">
-          <div className="links">
-            <Link href="/">Home</Link>
+        <Row>
+            <Col className='col-4'>
+          <Container className="links">
+            <Link href="/" class="btn btn-outline-light">Home</Link>
             <span className="divider">|</span>
-            <Link href="/about">About</Link>
-          </div>
+            <Link href="/about" class="btn btn-outline-light">About</Link>
+          </Container>
+          </Col>
+          </Row>
         </header>
       </Router>
     </>

@@ -12,42 +12,43 @@ import { Router, Link } from "wouter";
 */
 
 // Import and apply CSS stylesheet
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faGithub, faLinkedin, faTiktok, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./styles/styles.css";
 
 // Where all of our pages come from
-
 import PageRouter from "./components/router.jsx";
 import useHashLocation from "./hooks/wouter-hash";
 
 // The component that adds our Meta tags to the page
-import Header from "./components/header.jsx";
 import Seo from './components/seo.jsx';
+import Header from "./components/header.jsx";
+import Footer from "./components/footer.jsx";
 
 // Home function that is reflected across the site
 export default function Home() {
+  library.add(faGithub, faLinkedin, faTiktok, faInstagram);
+  
   return (
     <Router hook={useHashLocation}>
+      
+      
+      
       <Seo />
       <Header />
+      
       <main role="main" className="wrapper">
         <div className="content">
           {/* Router specifies which component to insert here as the main content */}
           <PageRouter />
         </div>
       </main>
-      {/* Footer links to Home and About, Link elements matched in router.jsx */}
-        <footer className="footer">
-        <a
-          className="btn--remix"
-          target="_top"
-          href="https://glitch.com/edit/#!/remix/glitch-hello-react"
-        >
-          <img src="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FLogo_Color.svg?v=1618199565140" alt="" />
-          Remix on Glitch
-        </a>
-      </footer>
+      < Footer/>
+
     </Router>
   );
 }

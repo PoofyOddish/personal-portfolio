@@ -20,7 +20,7 @@ export default function About() {
       <h1 className="title">About Jordan</h1>
       {/* REPLACE OPENING P TAG BELOW WITH CODE FROM TODO */}
 
-      <Container>
+      <Container id='aboutMe'>
         <Row>
         <Col className='col-md-8'>
           <p>
@@ -60,7 +60,7 @@ export default function About() {
               </ul>
             </li>
             <li>
-              &#128250;Worked at Dish Network as a Senior Business Operations
+              &#128250; Worked at Dish Network as a Senior Business Operations
               Analyst
               <ul>
                 <li>
@@ -93,7 +93,7 @@ export default function About() {
           </ul>
         </Col>
         <Col className='col-md-4'>
-          <p>
+          <Container id='carouselContainer'>
             <Carousel align="center">
               <Carousel.Item>
                 <img
@@ -120,7 +120,7 @@ export default function About() {
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
-          </p>
+          </Container>
         </Col>
           </Row>
       </Container>

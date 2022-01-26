@@ -2,6 +2,7 @@ import * as React from "react";
 import { animated } from "react-spring";
 import { useWiggle } from "../hooks/wiggle";
 import { Link } from "wouter";
+import { useState } from 'react';
 
 // Our language strings for the header
 const strings = [
@@ -28,6 +29,12 @@ export default function Home() {
   /* We use state to set the hello string from the array https://reactjs.org/docs/hooks-state.html
      - We'll call setHello when the user clicks to change the string
   */
+  
+  // useState keeps an internal state in the component
+  let initialTxt = 'nice to meet ya!';
+  const [text, setText] = React.useState(initialTxt);
+
+  
   const [hello, setHello] = React.useState(strings[0]);
   
   /* The wiggle function defined in /hooks/wiggle.jsx returns the style effect and trigger function
@@ -51,21 +58,29 @@ export default function Home() {
       {/* When the user hovers over the image we apply the wiggle style to it */}
       <animated.div onMouseEnter={trigger} style={style}>
         <img
-          src="https://cdn.glitch.global/b336736c-bd83-4fdb-a0e3-cce43c85cc6a/sams_edited.png?v=1642808066502"
+          src="https://cdn.glitch.global/b336736c-bd83-4fdb-a0e3-cce43c85cc6a/airport.png"
           className="illustration"
           onClick={handleChangeHello}
+          onMouseOver={e => (e.currentTarget.src = "https://cdn.glitch.global/b336736c-bd83-4fdb-a0e3-cce43c85cc6a/sams_edited.png?v=1642808066502")}
+          onMouseOut={e => (e.currentTarget.src ="https://cdn.glitch.global/b336736c-bd83-4fdb-a0e3-cce43c85cc6a/scared.png?v=1643080440394")}
+          onMouseEnter={() => setText("i'm ticklish stop that! D:")}
+          onMouseLeave={() => setText("dude don't poke me again")}
+          
           alt="Illustration click to change language"
         />
       </animated.div>
       <div className="navigation">
         {/* When the user hovers over this text, we apply the wiggle function to the image style */}
         <animated.div onMouseEnter={trigger}>
-          <a className="btn--click-me" onClick={handleChangeHello}>
-            plz don't poke, I'm ticklish
+          <a className="btn--click-me" 
+              onClick={handleChangeHello}>
+            <div>
+                {text}
+              </div>
           </a>
         </animated.div>
       </div>
-      <div className="instructions">
+      <div className="home_text rounded">
         <h2>Howdy there &#129312;</h2>
         <p>
           Welcome to my webpage. This is currently in development (clearly) but this is where I will be 
