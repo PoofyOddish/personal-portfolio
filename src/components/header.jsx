@@ -37,6 +37,8 @@ const Header = () => {
             <Link href="/" class="btn btn-outline-light">Home</Link>
             <span className="divider">|</span>
             <Link href="/about" class="btn btn-outline-light">About</Link>
+            <span className="divider">|</span>
+            <Link href="/contact-me" class="btn btn-outline-light">Contact</Link>
           </Container>
           </Col>
           </Row>
