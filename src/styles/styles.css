@@ -55,6 +55,7 @@ to this section's matching END comment to see page-specific styles.
   width: 100%;
   border-bottom: 1px solid #FFFFFF;
   margin: 0 0 1rem 0;
+  
 }
 
 
@@ -94,7 +95,10 @@ to this section's matching END comment to see page-specific styles.
   justify-content: flex-start;
   flex-direction: row;
   gap: 10px;
+  width: 100%;
+  
 }
+
 
 
 /******************************************************************************
@@ -207,8 +211,4 @@ h2 {
   object-fit: cover;
   max-width: 475px;
   max-height: 475px;
-}
-
-#carouselContainer {
-
 }
