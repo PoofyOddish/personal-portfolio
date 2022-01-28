@@ -64,7 +64,7 @@ export default function About() {
               Analyst
               <ul>
                 <li>
-                  Developed interal Data Auditing + Validation Environment
+                  Developed internal Data Auditing + Validation Environment
                   (DAVE) to improve data quality and monitoring
                 </li>
                 <li>
@@ -93,8 +93,9 @@ export default function About() {
           </ul>
         </Col>
         <Col className='col-md-4'>
-          <Container id='carouselContainer'>
-            <Carousel align="center">
+          <div className="carouselContainer">
+          <Container >
+            <Carousel>
               <Carousel.Item>
                 <img
                   className="rounded d-block justify-center"
@@ -120,7 +121,9 @@ export default function About() {
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
+            
           </Container>
+          </div>
         </Col>
           </Row>
       </Container>

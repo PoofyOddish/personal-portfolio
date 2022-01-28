@@ -31,10 +31,11 @@ class ContactForm extends Component {
         +'Email: ' + this.state.emailValue +'\n'
         +'Message: ' + this.state.bodyValue +'\n'
         +'\n cool thanks for the message i guess');
-        event.preventDefault();
+
         } else {
             alert("Please check the box confirming you know this isn't a real form");
         }
+        event.preventDefault();
 
     }
 
