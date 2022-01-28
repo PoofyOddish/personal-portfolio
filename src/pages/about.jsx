@@ -98,7 +98,7 @@ export default function About() {
               <Carousel.Item>
                 <img
                   className="rounded d-block justify-center"
-                  src="https://cdn.glitch.global/b336736c-bd83-4fdb-a0e3-cce43c85cc6a/halloween.jpeg?v=1642962422217"
+                  src="http://www.jordan-serna.com.s3.amazonaws.com/halloween.jpeg"
                   alt="First slide"
                   
                 />
@@ -110,7 +110,7 @@ export default function About() {
               <Carousel.Item>
                 <img
                   className="rounded d-block justify-center"
-                  src="https://cdn.glitch.global/b336736c-bd83-4fdb-a0e3-cce43c85cc6a/setup.jpeg?v=1642962773004"
+                  src="http://www.jordan-serna.com.s3.amazonaws.com/setup.jpeg"
                   alt="First slide"
                   
                 />

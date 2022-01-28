@@ -58,11 +58,11 @@ export default function Home() {
       {/* When the user hovers over the image we apply the wiggle style to it */}
       <animated.div onMouseEnter={trigger} style={style}>
         <img
-          src="https://cdn.glitch.global/b336736c-bd83-4fdb-a0e3-cce43c85cc6a/airport.png"
+          src="http://www.jordan-serna.com.s3.amazonaws.com/airport.png"
           className="illustration"
           onClick={handleChangeHello}
-          onMouseOver={e => (e.currentTarget.src = "https://cdn.glitch.global/b336736c-bd83-4fdb-a0e3-cce43c85cc6a/sams_edited.png?v=1642808066502")}
-          onMouseOut={e => (e.currentTarget.src ="https://cdn.glitch.global/b336736c-bd83-4fdb-a0e3-cce43c85cc6a/scared.png?v=1643080440394")}
+          onMouseOver={e => (e.currentTarget.src = "http://www.jordan-serna.com.s3.amazonaws.com/sams_edited.png")}
+          onMouseOut={e => (e.currentTarget.src ="http://www.jordan-serna.com.s3.amazonaws.com/scared.png")}
           onMouseEnter={() => setText("i'm ticklish stop that! D:")}
           onMouseLeave={() => setText("dude don't poke me again")}
           
