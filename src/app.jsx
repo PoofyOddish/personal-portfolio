@@ -32,7 +32,7 @@ import Footer from "./components/footer.jsx";
 // Home function that is reflected across the site
 export default function Home() {
   library.add(faGithub, faLinkedin, faTiktok, faInstagram);
-  
+
   return (
     <Router hook={useHashLocation}>
       
