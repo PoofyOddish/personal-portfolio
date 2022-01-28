@@ -39,7 +39,10 @@ export default function Home() {
       
       
       <Seo />
-      <Header />
+
+      <header>
+        <Header />
+      </header>
       
       <main role="main" className="wrapper">
         <div className="content">

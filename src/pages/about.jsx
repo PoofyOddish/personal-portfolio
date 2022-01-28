@@ -64,7 +64,7 @@ export default function About() {
               Analyst
               <ul>
                 <li>
-                  Developed interal Data Auditing + Validation Environment
+                  Developed internal Data Auditing + Validation Environment
                   (DAVE) to improve data quality and monitoring
                 </li>
                 <li>
@@ -93,12 +93,13 @@ export default function About() {
           </ul>
         </Col>
         <Col className='col-md-4'>
-          <Container id='carouselContainer'>
-            <Carousel align="center">
+          <div className="carouselContainer">
+          <Container >
+            <Carousel>
               <Carousel.Item>
                 <img
                   className="rounded d-block justify-center"
-                  src="https://cdn.glitch.global/b336736c-bd83-4fdb-a0e3-cce43c85cc6a/halloween.jpeg?v=1642962422217"
+                  src="http://www.jordan-serna.com.s3.amazonaws.com/halloween.jpeg"
                   alt="First slide"
                   
                 />
@@ -110,7 +111,7 @@ export default function About() {
               <Carousel.Item>
                 <img
                   className="rounded d-block justify-center"
-                  src="https://cdn.glitch.global/b336736c-bd83-4fdb-a0e3-cce43c85cc6a/setup.jpeg?v=1642962773004"
+                  src="http://www.jordan-serna.com.s3.amazonaws.com/setup.jpeg"
                   alt="First slide"
                   
                 />
@@ -120,7 +121,9 @@ export default function About() {
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
+            
           </Container>
+          </div>
         </Col>
           </Row>
       </Container>

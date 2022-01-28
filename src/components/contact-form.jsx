@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 
-
 class ContactForm extends Component {
     constructor(props) {
       super(props);
       this.state = {
             nameValue: '',
             emailValue: '',
-            bodyValue: ''
+            bodyValue: '',
+            isChecked: false,
         };
   
+        this.checkBox = this.checkBox.bind(this);
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -25,14 +26,28 @@ class ContactForm extends Component {
     }
   
     handleSubmit(event) {
-      alert('Name: ' + this.state.nameValue +'\n'
-      +'Email: ' + this.state.emailValue +'\n'
-      +'Message: ' + this.state.bodyValue +'\n'
-      +'\n cool thanks for the message i guess');
-      event.preventDefault();
+    if (this.state.isChecked) {
+        alert('Name: ' + this.state.nameValue +'\n'
+        +'Email: ' + this.state.emailValue +'\n'
+        +'Message: ' + this.state.bodyValue +'\n'
+        +'\n cool thanks for the message i guess');
+
+        } else {
+            alert("Please check the box confirming you know this isn't a real form");
+        }
+        event.preventDefault();
+
     }
+
+    checkBox(event) {
+        this.setState({isChecked: !this.state.isChecked});
+    }
+
   
     render() {
+
+        console.log(this.state.isChecked);
+
       return (
         <form onSubmit={this.handleSubmit}>
             <div className="mb-3">
@@ -69,7 +84,11 @@ class ContactForm extends Component {
                 onChange={this.handleChange}/>
             </div>
             <div className="mb-3 form-check">
-              <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+              <input type="checkbox" 
+                checked={this.state.isChecked}
+                onChange = {this.checkBox}
+                className="form-check-input" 
+                id="exampleCheck1" />
               <label className="form-check-label">I confirm I know this isn't a real form.</label>
             </div>
             <input type="submit" value="Submit" />
