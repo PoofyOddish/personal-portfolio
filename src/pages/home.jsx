@@ -84,7 +84,7 @@ export default function Home() {
         <h2>Howdy there &#129312;</h2>
         <p>
           Welcome to my webpage. This is currently in development (clearly) but this is where I will be 
-          posting progress in learning web development and any additional random musings.
+          <Link href="/store" id="hiddenLink"> stor</Link>ing progress in learning web development and any additional random musings.
           <br/><br/>
           Thanks for checking it out!
         </p>

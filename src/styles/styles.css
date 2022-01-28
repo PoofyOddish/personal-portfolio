@@ -75,7 +75,7 @@ to this section's matching END comment to see page-specific styles.
   text-decoration: none;
 }
 
-.header a:link, a:visited {
+.header a:not(#hiddenLink):link, a:not(#hiddenLink):visited {
   font-family: HK Grotesk;
   font-style: normal;
   font-weight: normal;
@@ -211,4 +211,38 @@ h2 {
   object-fit: cover;
   max-width: 475px;
   max-height: 475px;
+}
+
+.store, .counter {
+  display: flex;
+  width: 100vw;
+  height: 100vh; 
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.shade {
+  display: flex;
+  position: absolute;
+  z-index: 999;
+  width: 640px;
+  height: 380px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.specialButton {
+  display: no-flex;
+}
+
+#hiddenLink {
+  color: #212529 !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  text-decoration: none !important;
+  cursor: help;
 }
