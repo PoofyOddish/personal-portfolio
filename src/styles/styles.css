@@ -10,12 +10,18 @@ to this section's matching END comment to see page-specific styles.
 :root {
   --color-bg: #afcfd7;
   --color-text-main: #000000;
-  --color-primary: #e0e0e0;
+  --color-primary: #000000;
   --wrapper-height: 85vh;
   --image-max-width: 320px;
   --font-family: "HK Grotesk";
   --font-family-header: "HK Grotesk";
   /*--background-image: url("https://cdn.glitch.global/b336736c-bd83-4fdb-a0e3-cce43c85cc6a/gradient.jpg?v=1643152320670");*/
+}
+
+[data-theme='nightmare'] {
+  --color-bg: #000000;
+  --color-primary: #ff0000;
+  --color-text-main: rgb(255, 0, 0);
 }
 
 /* Basic page style resets */
@@ -37,6 +43,11 @@ to this section's matching END comment to see page-specific styles.
   font-weight: bold;
   src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437")
     format("opentype");
+}
+
+#theme {
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
 }
 
 /* Navigation grid */
@@ -111,12 +122,13 @@ END Glitch hello-app default styles
 
 /* Page structure */
 body {
-  background-color: var(--color-bg);
+  /*background-color: var(--color-bg);*/
   margin: 0 ;
   padding: 0;
 }
 
 .wrapper {
+  /*background-color: var(--color-bg);*/
   min-height: var(--wrapper-height);
   display: grid;
   place-items: center;
@@ -126,6 +138,7 @@ body {
   min-height: 86vh;
 }
 .content {
+  background-color: var(--color-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -134,7 +147,7 @@ body {
 
 /* Page titles */
 h1 {
-  color: rgb(0, 0, 0);
+  color: var(--color-text-main);
   font-style: normal;
   font-weight: bold;
   font-size: 100px;

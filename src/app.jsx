@@ -29,21 +29,37 @@ import Seo from './components/seo.jsx';
 import Header from "./components/header.jsx";
 import Footer from "./components/footer.jsx";
 
-// Home function that is reflected across the site
-export default function Home() {
-  library.add(faGithub, faLinkedin, faTiktok, faInstagram);
+// Used for nightmare mode
+import useLocalStorage from 'use-local-storage'
+import { ThemeState } from "./index.jsx"
 
+// Home function that is reflected across the site
+
+export default function Home() {
+
+  library.add(faGithub, faLinkedin, faTiktok, faInstagram);
+  //const [theme, setTheme] = 'normal'
+  const [ state, dispatch ] = React.useContext(ThemeState);
+  //const [theme, setTheme] = useLocalStorage('theme', state.theme) 
+
+  //const switchTheme = () => {
+  //  const newTheme = theme === 'normal' ? 'nightmare' : 'normal';
+  //  setTheme(newTheme);
+ // }
+
+
+  console.log(state.theme);
   return (
     <Router hook={useHashLocation}>
       
-      
-      
       <Seo />
-
+      <div id='theme' data-theme={state.theme}>
       <header>
         <Header />
       </header>
-      
+      {/*< button onClick={switchTheme}>
+      click here
+  </button>*/}
       <main role="main" className="wrapper">
         <div className="content">
           {/* Router specifies which component to insert here as the main content */}
@@ -51,7 +67,7 @@ export default function Home() {
         </div>
       </main>
       < Footer/>
-
+      </div>
     </Router>
   );
 }
