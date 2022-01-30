@@ -38,7 +38,7 @@ export default function Home() {
       {/* When the user hovers over the image we apply the wiggle style to it */}
       <animated.div onMouseEnter={trigger} style={style}>
         <img
-          src="http://www.jordan-serna.com.s3.amazonaws.com/airport.png"
+          src="http://www.jordan-serna.com.s3.amazonaws.com/assets/airport.png"
           className="illustration"
           onMouseOver={e => (e.currentTarget.src = "http://www.jordan-serna.com.s3.amazonaws.com/sams_edited.png")}
           onMouseOut={e => (e.currentTarget.src ="http://www.jordan-serna.com.s3.amazonaws.com/scared.png")}

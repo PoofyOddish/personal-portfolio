@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
+import { ThemeState } from "../index.jsx"
+
 /* ADD IMPORTS FROM TODO ON THE NEXT LINE */
 
 /**
@@ -11,26 +13,76 @@ import Row from "react-bootstrap/Row";
  * This component is attached to the /about path in router.jsx
  */
 
-//export default function About() {
+export default function About() {
 
-class About extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-        theme: this.props.theme,
-    }
-}
-  
-  /* DECLARE STYLE AND TRIGGER FOR WIGGLE EFFECT FROM TODO ON NEXT LINE */
-    render () {
-      const {theme} = this.state;
-      console.log({theme})
+  const [ state, dispatch ] = React.useContext(ThemeState);
+  console.log(state.theme);
+
+  function CaroSwitch() {
+      if (state.theme == "normal") {
+        return (              
+        <Carousel>
+          <Carousel.Item>
+            <img
+              className="rounded d-block justify-center"
+              src="http://www.jordan-serna.com.s3.amazonaws.com/assets/halloween.jpeg"
+              alt="First slide"
+              
+            />
+            <Carousel.Caption>
+              <h3>Halloween with the puppers!</h3>
+              <p>Not pictured: Pirate cat</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="rounded d-block justify-center"
+              src="http://www.jordan-serna.com.s3.amazonaws.com/setup.jpeg"
+              alt="First slide"
+              
+            />
+            <Carousel.Caption>
+              <h3>Me in my natural habitat</h3>
+              <p>We don't talk about my posture</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+        )
+      } else {
+        return (        
+        <Carousel>
+          <Carousel.Item>
+            <img
+              className="rounded d-block justify-center"
+              src="http://www.jordan-serna.com.s3.amazonaws.com/assets/halloween_nightmare.jpeg"
+              alt="First slide"
+              
+            />
+            <Carousel.Caption>
+              <h3>Halloween with the puppers!</h3>
+              <p>Not pictured: Pirate cat</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="rounded d-block justify-center"
+              src="http://www.jordan-serna.com.s3.amazonaws.com/assets/setup_nightmare.png"
+              alt="First slide"
+              
+            />
+            <Carousel.Caption>
+              <h3>Me in my natural habitat</h3>
+              <p>We don't talk about my posture</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+        )
+      };
+  };
+
     return (
       <div className="page">
-        {/* REPLACE H1 ELEMENT BELOW WITH CODE FROM TODO */}
         <h1 className="title">About Jordan</h1>
-        {/* REPLACE OPENING P TAG BELOW WITH CODE FROM TODO */}
-
         <Container id='aboutMe'>
           <Row>
           <Col className='col-md-8'>
@@ -106,33 +158,7 @@ class About extends React.Component {
           <Col className='col-md-4'>
             <div className="carouselContainer">
             <Container >
-              <Carousel>
-                <Carousel.Item>
-                  <img
-                    className="rounded d-block justify-center"
-                    src="http://www.jordan-serna.com.s3.amazonaws.com/halloween.jpeg"
-                    alt="First slide"
-                    
-                  />
-                  <Carousel.Caption>
-                    <h3>Halloween with the puppers!</h3>
-                    <p>Not pictured: Pirate cat</p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    className="rounded d-block justify-center"
-                    src="http://www.jordan-serna.com.s3.amazonaws.com/setup.jpeg"
-                    alt="First slide"
-                    
-                  />
-                  <Carousel.Caption>
-                    <h3>Me in my natural habitat</h3>
-                    <p>We don't talk about my posture</p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-              </Carousel>
-              
+              <CaroSwitch />
             </Container>
             </div>
           </Col>
@@ -141,6 +167,3 @@ class About extends React.Component {
       </div>
     );
   };
-};
-
-export default About;
