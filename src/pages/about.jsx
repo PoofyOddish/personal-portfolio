@@ -16,12 +16,11 @@ import { ThemeState } from "../index.jsx"
 export default function About() {
 
   const [ state, dispatch ] = React.useContext(ThemeState);
-  console.log(state.theme);
 
   function CaroSwitch() {
       if (state.theme == "normal") {
         return (              
-        <Carousel>
+        <Carousel align='center'>
           <Carousel.Item>
             <img
               className="rounded d-block justify-center"
@@ -50,7 +49,7 @@ export default function About() {
         )
       } else {
         return (        
-        <Carousel>
+        <Carousel align='center'>
           <Carousel.Item>
             <img
               className="rounded d-block justify-center"
