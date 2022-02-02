@@ -75,7 +75,7 @@ export default function ClickClack() {
     return (
       <div className="store" style={{backgroundColor: color}}>
       < RenderShade />
-      <iframe frameborder="0" src="https://itch.io/embed-upload/5146665?color=333333" allowfullscreen="" width="640" height="380">
+      <iframe frameborder="0" src="https://itch.io/embed-upload/5173276?color=333333" allowfullscreen="" width="640" height="380">
               <a href="https://jserna.itch.io/hidden-vn">
               </a>
         </iframe>
@@ -83,3 +83,4 @@ export default function ClickClack() {
       </div>
     );
 };
+
