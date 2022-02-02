@@ -56,19 +56,8 @@ to this section's matching END comment to see page-specific styles.
 }
 
 
-.header {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  /*flex-direction: row;*/
-  gap: 30px;
-  padding: 0.75rem 0 1rem 0;
-  width: 100vw;
+.navbar {
   border-bottom: 1px solid #FFFFFF;
-  margin: 0 0 1rem 0;
-  top: 0;
-  left: 0;
-  
 }
 
 
@@ -113,8 +102,6 @@ to this section's matching END comment to see page-specific styles.
   width: 100%;
   
 }
-
-
 
 /******************************************************************************
 END Glitch hello-app default styles
@@ -166,15 +153,6 @@ h1 {
 .page {
   width: 100vw;
 }
-/* The React image and "click me" text */
-.btn--click-me {
-  user-select: none;
-  cursor: pointer;
-  white-space: nowrap;
-}
-.btn--click-me:hover {
-  text-decoration: underline;
-}
 
 /* Very light scaling for our illustration */
 .illustration {
@@ -216,16 +194,6 @@ h2 {
   height: 100%;
   margin: auto;
   padding: auto;
-}
-.is-sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  /*box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);*/
-  /*background-color: rgba(255, 255, 255, 0.95);*/
-  animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
-
 }
 
 #socialMedia {
@@ -282,4 +250,20 @@ h2 {
   font-weight: normal !important;
   text-decoration: none !important;
   cursor: help;
+}
+
+#portfolio {
+  align-items: center;
+  text-align: center;
+}
+
+#expertise {
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 1rem auto 0;
+  padding: 1rem;
+  width: 100vw;
+}
+
+.formError {
+  color: red;
 }

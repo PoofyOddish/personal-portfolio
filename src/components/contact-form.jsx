@@ -1,100 +1,84 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { Checkbox } from "@mui/material";
+import { ThemeState } from '../index.jsx'
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Image from 'react-bootstrap/Image';
 
-class ContactForm extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-            nameValue: '',
-            emailValue: '',
-            bodyValue: '',
-            isChecked: false,
-        };
+export default function ContactForm() {
+  const [ state, dispatch ] = React.useContext(ThemeState);
   
-        this.checkBox = this.checkBox.bind(this);
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+  const { register, handleSubmit, formState: { errors}, control, getValues } = useForm({
+    defaultValues : {
+      checkbox: false,
     }
-  
-    handleChange(event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
+  });
 
-        this.setState({
-            [name]: value
-        });
-    }
-  
-    handleSubmit(event) {
-    if (this.state.isChecked) {
-        alert('Name: ' + this.state.nameValue +'\n'
-        +'Email: ' + this.state.emailValue +'\n'
-        +'Message: ' + this.state.bodyValue +'\n'
-        +'\n cool thanks for the message i guess');
+  const [show, setShow] = useState(false);
 
-        } else {
-            alert("Please check the box confirming you know this isn't a real form");
-        }
-        event.preventDefault();
+  const handleClose = () => setShow(false);
 
-    }
+  const handleShow = (data) => setShow(true);
 
-    checkBox(event) {
-        this.setState({isChecked: !this.state.isChecked});
-    }
+  return (
+    <form onSubmit={handleSubmit(handleShow)}>
+      <div className="mb-3">
+          <label className="form-label">Name</label>
+          <input className="form-control" defaultValue = {state.theme === 'nightmare' ? 'orange bird' : ''} {...register("name", { required: true })} />
+          <div className='formError'>{errors.name?.type === 'required' && "Please enter a name."}</div>
+      </div>
+      <div className="mb-3">
+        <label className="form-label">Email address</label>
+        
+        <input className="form-control" {...register("email", { required: true
+          ,pattern: {value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message:"Please input a valid email." }})} />
+        <div className='formError'>
+          {errors.email?.type === 'required' && "Please enter an email."}
+          {errors.email?.message && "Please enter a valid email address."}
+        </div>
+      </div>
+      <div className="mb-3">
+        <label className="form-label">Message</label>
+        
+        <input className="form-control" rows="3" {...register("bodyText", { required: true })} />
+        <div className='formError'>{errors.bodyText?.type === 'required' && "Please enter a message."}</div>
+      </div>
+      <div className="mb-3 form-check">
+        <Controller
+        name="checkbox"
+        control={control}
+        rules={{ required: true }}
+        render={({ field }) => <Checkbox {...field} />}/>
+        <label className="form-check-label">I confirm I know this isn't a real form.</label><br/>
+        <div className='formError'>{errors.checkbox?.type === 'required' && "Please confirm you know this isn't a real form."}</div>
+      </div>
+      <input type="submit" value="Submit"/>
+      <Modal show={show} onHide={handleClose}>
+        <Container>
+          <Col>
+        <Modal.Header closeButton>
+          <Modal.Title>Contact Me</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        Name: {getValues("name")}<br/>
+        Email: {getValues("email")}<br/>
+        Message: {getValues("bodyText")}<br/><br/>
+        <Image rounded fluid src="http://www.jordan-serna.com.s3.amazonaws.com/assets/nightmare_clue.png"/>
+     
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+        </Col>
+        </Container>
+      </Modal>
+      
+  </form>
+  );
 
-  
-    render() {
-
-        console.log(this.state.isChecked);
-
-      return (
-        <form onSubmit={this.handleSubmit}>
-            <div className="mb-3">
-                <label className="form-label">Name</label>
-              
-              <input type="text" 
-                className="form-control" 
-                name="nameValue"
-                
-                value={this.state.nameValue} 
-                onChange={this.handleChange}
-                />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Email address</label>
-              
-              <input type="email" 
-                className="form-control" 
-                name="emailValue"
-                value={this.state.emailValue} 
-                onChange={this.handleChange} />
-
-              <div id="emailHelp" className="form-text">Please note I won't actually see this.</div>
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Message</label>
-              
-              <textarea 
-                type="text" 
-                className="form-control" 
-                name="bodyValue"
-                rows='3' 
-                value={this.state.bodyValue}
-                onChange={this.handleChange}/>
-            </div>
-            <div className="mb-3 form-check">
-              <input type="checkbox" 
-                checked={this.state.isChecked}
-                onChange = {this.checkBox}
-                className="form-check-input" 
-                id="exampleCheck1" />
-              <label className="form-check-label">I confirm I know this isn't a real form.</label>
-            </div>
-            <input type="submit" value="Submit" />
-        </form>
-      );
-    }
-  }
-
-export default ContactForm;
+}

@@ -4,6 +4,9 @@ import { useWiggle } from "../hooks/wiggle";
 import { Link } from "wouter";
 import { useState } from 'react';
 import { ThemeState } from "../index.jsx"
+import Image from 'react-bootstrap/Image';
+import Container from 'react-bootstrap/Container';
+import { Row, Col} from 'react-bootstrap/';
 
 /**
 * The Home function defines the content that makes up the main content of the Home page
@@ -18,7 +21,6 @@ export default function Home() {
   */
   
   const [ state, dispatch ] = React.useContext(ThemeState);
-  console.log(state.theme);
 
   // useState keeps an internal state in the component
   let initialTxt = 'nice to meet ya!';
@@ -31,33 +33,35 @@ export default function Home() {
   */
   const [style, trigger] = useWiggle({ x: 5, y: 5, scale: 1 });
 
+  function TextSwitch() {
+    if (state.theme == "normal") {
+      return ( 
+        <div></div>
+      )} else {
+        return ( 
+          <div className="card">
+          <img src="http://www.jordan-serna.com.s3.amazonaws.com/assets/glitch.gif" className="card-img-top" alt="Data in the shape of a heart." />
+            <div className="card-body">
+              <h5 className="card-title" align='center'></h5>
+              <div className="card-text" align='center'>
+                á̶̧̛̰̞͙͔͉͊̈́̈̏̀̔̀̀͝͠ȓ̴͕̹̰͎̺͛͋̀̎͑̑̾͌̐͌͋͝è̶̹͕̖͖͈̞̖̭͑͝n̸̙̻̫͎̍͗̇͂̎̅͊̓͋̇̚̕'̷̜̅̇͋͊͐̇̐͑̏̃̋̌͝͠t̶̡̞̱̮̳̳̪̆͂̆͘ ̴̼̪̼͇͍̗̙̺͋̂͑̄͐͌̈́́̄̿̉̃̚͜͜͝y̶̨̡̢̫̰̟͖̼͖̩̳̜̟̹͐̿̄͐͆̐̈́̄̽̕͘͝o̷̢̢͔͚̫̥͍͚̯̯͈̗͈̫̅͂̑̀̇̔͛̆̌͝͝ư̶̠̺̠̫͓̙̯̘̑ ̷̛͍̘̫̖̭̮̗̰̗̥̹̬̳͓̑̉͊̋̇̂͗͆̾̀̈́͝â̵͕̲̮̄͋̆̃̉͋͋͒̒̓͠͠ ̵̨̨̹̫̺̫̽̌̈́̽̋̀̌͌́̕͜ș̸̞̩̖̜͇͔̪͈̓̔̒̀̊͋m̸͖̥̻̓̃̍͂͊͑͗͋͑̕a̴̛̗̙̳̰̰͔̋̆͆̿̈́̇͘̚͝r̸̰̪̭͙̪̹̩̽̕t̶̛̲́͊̈ ̷̧͎̓̒́̄͝ó̶̯̼̥̟̳̭͔͚̭̞̝̺̀́͛͛̽͠͠ͅͅñ̷̡̫͍͍̹̹͜e̵̡̨̛̫̻̳̜̣̥͈͇̊́̄
+              </div>
+            </div>
+          </div>
+        )}
+      };
+
   return (
     <>
       <h1 className="title">Jordan Serna</h1>
-      <h2 className="title">&#129409;</h2>
-      {/* When the user hovers over the image we apply the wiggle style to it */}
       <animated.div onMouseEnter={trigger} style={style}>
-        <img
-          src="http://www.jordan-serna.com.s3.amazonaws.com/airport.png"
-          className="illustration"
-          onMouseOver={e => (e.currentTarget.src = "http://www.jordan-serna.com.s3.amazonaws.com/sams_edited.png")}
-          onMouseOut={e => (e.currentTarget.src ="http://www.jordan-serna.com.s3.amazonaws.com/scared.png")}
-          onMouseEnter={() => setText("i'm ticklish stop that! D:")}
-          onMouseLeave={() => setText("dude don't poke me again")}
+        <Image
+          src="http://www.jordan-serna.com.s3.amazonaws.com/assets/home_pic_new.png"
           
-          alt="Illustration click to change language"
+          className="illustration"
+          alt="Pic of website creator"
         />
       </animated.div>
-      <div className="navigation">
-        {/* When the user hovers over this text, we apply the wiggle function to the image style */}
-        <animated.div onMouseEnter={trigger}>
-          <a className="btn--click-me">
-            <div>
-                {text}
-              </div>
-          </a>
-        </animated.div>
-      </div>
       <div className="home_text rounded">
         <h2>Howdy there &#129312;</h2>
         <p>
@@ -66,6 +70,55 @@ export default function Home() {
           <br/><br/>
           Thanks for checking it out!
         </p>
+      </div>
+      <br/>
+      <div id='expertise'>
+      <h2 >Areas of Expertise</h2>
+      <br/>
+      <Container className="rounded">
+        <Row>
+        </Row>
+        <Row>
+      <div className="card-group">
+        
+          <div className="card">
+          <img src="http://www.jordan-serna.com.s3.amazonaws.com/assets/data.jpg" className="card-img-top" alt="Data in the shape of a heart." />
+            <div className="card-body">
+              <h5 className="card-title" align='center'>Data Analysis + Engineering</h5>
+              <div className="card-text">
+                <ul>
+                  <li> 5+ years of analytics experience</li>
+                  <li> Well-versed in SQL / Python workflows for data processing</li>
+                  <li> Leverages Google API to automate data workflows</li>
+                  <li> Experienced in implementing advanced functions + parameters in Tableau</li>
+                  <li> Has been referred to as the "data nerd" at more than one job</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          < TextSwitch/>
+        
+          <div className="card">
+          <img src="http://www.jordan-serna.com.s3.amazonaws.com/assets/react.jpg" className="card-img-top" alt="VS Code editor with React logo." />
+            <div className="card-body">
+              <h5 className="card-title" align='center'>Front End Development</h5>
+              <div className="card-text">
+              <ul>
+                  <li> Beginner in front end, but a quick learner</li>
+                  <li> Built this website in React JS</li>
+                  <li> Also knowledgable in HTML, CSS, and Bootstrap</li>
+                  <li> Check out portfolio (coming soon!) for more examples of work</li>
+                  <li> Source code for this website available on <Link href="https://github.com/PoofyOddish">Github</Link></li>
+                  <li> I just think coding is neat</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      </Row>
+      </Container>
       </div>
     </>
   );
