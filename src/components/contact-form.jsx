@@ -28,21 +28,23 @@ export default function ContactForm() {
       <div className="mb-3">
           <label className="form-label">Name</label>
           <input className="form-control" defaultValue = {state.theme === 'nightmare' ? 'orange bird' : ''} {...register("name", { required: true })} />
-          {errors.name?.type === 'required' && "Please enter a name."}
+          <div className='formError'>{errors.name?.type === 'required' && "Please enter a name."}</div>
       </div>
       <div className="mb-3">
         <label className="form-label">Email address</label>
         
-        <input className="form-control" {...register("email", { required: true })} />
-        {errors.email?.type === 'required' && "Please enter an email."}
-
-        <div id="emailHelp" className="form-text">Please note I won't actually see this.</div>
+        <input className="form-control" {...register("email", { required: true
+          ,pattern: {value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message:"Please input a valid email." }})} />
+        <div className='formError'>
+          {errors.email?.type === 'required' && "Please enter an email."}
+          {errors.email?.message && "Please enter a valid email address."}
+        </div>
       </div>
       <div className="mb-3">
         <label className="form-label">Message</label>
         
-        <input className="form-control" {...register("bodyText", { required: true })} />
-        {errors.bodyText?.type === 'required' && "Please enter a message."}
+        <input className="form-control" rows="3" {...register("bodyText", { required: true })} />
+        <div className='formError'>{errors.bodyText?.type === 'required' && "Please enter a message."}</div>
       </div>
       <div className="mb-3 form-check">
         <Controller
@@ -51,7 +53,7 @@ export default function ContactForm() {
         rules={{ required: true }}
         render={({ field }) => <Checkbox {...field} />}/>
         <label className="form-check-label">I confirm I know this isn't a real form.</label><br/>
-        {errors.checkbox?.type === 'required' && "Please confirm you know this isn't a real form."}
+        <div className='formError'>{errors.checkbox?.type === 'required' && "Please confirm you know this isn't a real form."}</div>
       </div>
       <input type="submit" value="Submit"/>
       <Modal show={show} onHide={handleClose}>
